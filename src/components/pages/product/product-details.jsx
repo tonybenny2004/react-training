@@ -1,4 +1,5 @@
 import React from 'react';
+import './product.css';
 
 class ProductDetails extends React.Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class ProductDetails extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="product-details">
         <h1>{this.props.match.params.productId}</h1>
       </div>
     )
