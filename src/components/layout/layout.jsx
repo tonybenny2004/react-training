@@ -5,6 +5,7 @@ import LeftNav from '../navigation/left-nav';
 import About from '../pages/about';
 import Home from '../pages/home';
 import Product from '../pages/products';
+import Movies from '../../containers/movies';
 
 
 const LayoutComponent = () => (
@@ -20,6 +21,7 @@ const LayoutComponent = () => (
             <Route exact path='/' component={Home} />
             <Route exact path='/about' component={About} />
             <Route exact path='/products' component={Product} />
+            <Route exact path='/movies' component={Movies} />
          </Switch>
         </div>
       </div>

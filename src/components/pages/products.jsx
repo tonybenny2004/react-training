@@ -2,6 +2,7 @@ import React from 'react';
 import ProductItem from './product/product-item';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ProductDetails from './product/product-details';
+import NewProduct from './product/product-new';
 
 class Product extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class Product extends React.Component {
     this.state = {
       products: []
     };
+    this.newProduct = this.newProduct.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +24,15 @@ class Product extends React.Component {
     })
   }
 
+  newProduct(newItem) {
+    this.setState({
+      products: [
+        ...this.state.products,
+        newItem
+      ]
+    });
+  }
+
   componentDidCatch(error, info) {
     console.log(error, info);
   }
@@ -33,6 +44,9 @@ class Product extends React.Component {
         <div className="row">
           <div className="col-md-4">
             <h1>Products</h1>
+            <div>
+              <NewProduct saveProduct={this.newProduct} />
+            </div>
             {
               products.map(item => <ProductItem key={item.path} item={item} />)
             }
