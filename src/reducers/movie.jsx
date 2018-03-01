@@ -6,7 +6,11 @@ const MovieReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_MOVIE':
       const movie = action.movie;
-      return { ...state, movies: [ ...state.movies, movie] };
+      if (state.movies.findIndex(item => item.id === movie.id) === -1) {
+        return { ...state, movies: [ ...state.movies, movie] };
+      } else {
+        return state;
+      }
     default:
       return state;
   }
